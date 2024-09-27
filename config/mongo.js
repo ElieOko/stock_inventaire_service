@@ -200,6 +200,4 @@ module.exports ={
     stock_type,
     stock,
     user
-
-
 };
