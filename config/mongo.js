@@ -18,6 +18,7 @@ const type_in = new mongoose.Schema({
 })
 
 const inventory_schema = new mongoose.Schema({
+    spacework_id :{type:Number},
     name : {type:String,unique: true,minlength:1,maxlength:50, required:[true,"Le champs name ne peut-être null"]},
     description :{type:String,default:""},
     type_inventory :{
@@ -27,6 +28,7 @@ const inventory_schema = new mongoose.Schema({
 })
 
 const schema_product = new mongoose.Schema({
+    spacework_id :{type:Number},
     name : {type:String,unique: true,minlength:1,maxlength:50, required:[true,"Le champs name ne peut-être null"]},
     description :{type:String,default:""},
     price_wholesale :{type:Number,default:0},
@@ -41,22 +43,23 @@ const schema_product = new mongoose.Schema({
     },
     packaging:{
         type:mongoose.Schema.Types.ObjectId,
-        ref:"Packaging"
+        ref:"PackagingProduct"
     },
-    user:{
-        type:mongoose.Schema.Types.ObjectId,
-        ref : "User"
-    },
+    // user:{
+    //     type:mongoose.Schema.Types.ObjectId,
+    //     ref : "User"
+    // },
     is_active : {type:Boolean, default:true},
     date_expiration:{type:Date, default:""},
     date_created : {type:Date,default:Date.now}
 })
 
 const defective_schema = new mongoose.Schema({
-    user :{
-        type :mongoose.Schema.Types.ObjectId,
-        ref : "User"
-    },
+    spacework_id :{type:Number},
+    // user :{
+    //     type :mongoose.Schema.Types.ObjectId,
+    //     ref : "User"
+    // },
     product :{
         type :mongoose.Schema.Types.ObjectId,
         ref :"Product"
@@ -82,10 +85,11 @@ const product_type_schema = new mongoose.Schema({
 })
 
 const stock_in_schema = new mongoose.Schema({
-    user:{
-        type:mongoose.Schema.Types.ObjectId,
-        ref : "User"
-    },
+    // user:{
+    //     type:mongoose.Schema.Types.ObjectId,
+    //     ref : "User"
+    // },
+    spacework_id :{type:Number},
     stock:{
         type: mongoose.Schema.Types.ObjectId,
         ref:"Stock"
@@ -96,10 +100,11 @@ const stock_in_schema = new mongoose.Schema({
 })
 
 const stock_out_schema = new mongoose.Schema({
-    user:{
-        type:mongoose.Schema.Types.ObjectId,
-        ref : "User"
-    },
+    // user:{
+    //     type:mongoose.Schema.Types.ObjectId,
+    //     ref : "User"
+    // },
+    spacework_id :{type:Number},
     stock:{
         type: mongoose.Schema.Types.ObjectId,
         ref:"Stock"
@@ -111,10 +116,11 @@ const stock_out_schema = new mongoose.Schema({
 })
 
 const rapport_schema = new mongoose.Schema({
-    user :{
-        type:mongoose.Schema.Types.ObjectId,
-        ref : "User"
-    },
+    // user :{
+    //     type:mongoose.Schema.Types.ObjectId,
+    //     ref : "User"
+    // },
+    spacework_id :{type:Number},
     type_rapport:{
         type:mongoose.Schema.Types.ObjectId,
         ref : "TypeRapport"
@@ -124,30 +130,33 @@ const rapport_schema = new mongoose.Schema({
 })
 
 const schema = new mongoose.Schema({
-    user :{
-        type:mongoose.Schema.Types.ObjectId,
-        ref : "User"
-    },
+    // user :{
+    //     type:mongoose.Schema.Types.ObjectId,
+    //     ref : "User"
+    // },
+    spacework_id :{type:Number},
     name : {type:String,unique: true,minlength:1,maxlength:50, required:[true,"Le champs name ne peut-être null"]},
     description :{type:String,default:""},
 })
 
 
 const stock_type_schema = new mongoose.Schema({
-    user:{
-        type:mongoose.Schema.Types.ObjectId,
-        ref : "User"
-    },
+    // user:{
+    //     type:mongoose.Schema.Types.ObjectId,
+    //     ref : "User"
+    // },
+    spacework_id :{type:Number},
     name : {type:String,unique: true,minlength:1,maxlength:50, required:[true,"Le champs name ne peut-être null"]},
     description :{type:String,default:""},
     is_active :{type:Boolean, default:true}
 })
 
 const stock_schema = new mongoose.Schema({
-    user:{
-        type:mongoose.Schema.Types.ObjectId,
-        ref : "User"
-    },
+    // user:{
+    //     type:mongoose.Schema.Types.ObjectId,
+    //     ref : "User"
+    // },
+    spacework_id :{type:Number},
     type_stock:{
         type:mongoose.Schema.Types.ObjectId,
         ref : "TypeStock"

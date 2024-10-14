@@ -7,6 +7,7 @@ async function create(data) {
         return result
     } catch (error) {
         console.log(error.message); 
+        return {errors : error.message,message:error.message}
     }
     
 }
@@ -14,13 +15,14 @@ async function update(data,id){
     const state = await model.findByIdAndUpdate(id,{$set:data},{new:true})
     return state
 }
-async function getAll(){
+async function getAll(workspace=1){
     const pageNumber = 2;
-    const pageSize = 12;
+    const pageSize = 1000;
     const data = await model.find()
     .limit(pageSize)
-    .sort({nom:1})
-    .select({nom:1,level:1});
+    .populate("devise type_product packaging")
+    .sort()
+    .select();
     return data;
 }
 async function remove(id){

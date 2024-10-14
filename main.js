@@ -38,7 +38,7 @@ if (app.get("env")==="development") {
     app.use(morgan('tiny'));
 }
 
-const port = process.env.PORT || 3000;
+const port = process.env.PORT || 7000;
 app.listen(port,()=> {
     console.log(`Server launch ${port}...`)
 });

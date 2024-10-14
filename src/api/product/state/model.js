@@ -19,8 +19,8 @@ async function getAll(){
     const pageSize = 12;
     const data = await model.find()
     .limit(pageSize)
-    .sort({nom:1})
-    .select({nom:1,level:1});
+    .sort()
+    .select();
     return data;
 }
 async function remove(id){
